@@ -5,7 +5,7 @@
     if (isset($_POST["initialize"]))
     {   
     
-    $file = file_get_contents('./university.sql', FILE_USE_INCLUDE_PATH);
+    $file = file_get_contents('./ProjDB.sql', FILE_USE_INCLUDE_PATH);
     $array = explode(';', $file);
     foreach($array as $array){
         $sql = $array. ";";

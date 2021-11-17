@@ -47,25 +47,25 @@ nav{
     margin-top: -10px;
     padding: 8px;
 }
-.inline h1{
+.inline h1, form, button {
     display: inline;
-    width: 90%;
 }
-
-.nav a {
-    color: black;
-    padding: 40px;
-    font: 24px;
-  }
 
 .Right{
     float: right;
-    font-size: 24px;
+    margin-top: -10px;
 }
 
 button.btn {
-    padding: 20px;
+    padding: 15px;
+    background-color: khaki;
+    border-color: transparent;
+    color: black;
+    font-size: 16px;
+}
+
+button:hover{
+    cursor: pointer;
     background-color: black;
     color: white;
-    font-size: 24px;
 }
