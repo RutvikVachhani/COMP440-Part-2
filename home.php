@@ -32,7 +32,7 @@ session_start();
       </div>
     </nav>
     <div class="center">
-  	  <h1>Hello<h1>
+  	  <h1>Hello <?php echo $_SESSION['User']; ?> <h1>
     </div>
     <a href="postBlog.php">Post a new blog</a>
   </body>

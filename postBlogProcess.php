@@ -18,5 +18,14 @@ session_start();
     include 'db_connect.php';
 
     //Insert 
-    
+    /*$sql = "INSERT INTO blogs (`subject`, `description`, `pdate`, `created_by`)
+            VALUES ('" + $Subject + "', '" + $Description + "', " + CURDATE() + ", '" + $_SESSION['User'] +"');";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Blog Posted";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }   
+
+$conn->close();*/
 ?>

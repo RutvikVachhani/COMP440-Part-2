@@ -19,6 +19,7 @@ session_start();
 
     if(mysqli_num_rows($result) === 1){
         echo "Login Successful";
+        $_SESSION['User'] = $Username;
         header("Location: home.php");
             exit();
     }

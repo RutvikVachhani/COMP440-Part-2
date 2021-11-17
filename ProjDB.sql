@@ -44,7 +44,7 @@ CREATE TABLE `blogs` (
   PRIMARY KEY (`blogid`),
   KEY `FK1_idx` (`description`),
   KEY `FK1` (`created_by`),
-  CONSTRAINT `FK1` FOREIGN KEY (`created_by`) REFERENCES `users` (`username`)
+  CONSTRAINT `FK1` FOREIGN KEY (`created_by`) REFERENCES `UserLoginDetails` (`Username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
