@@ -33,19 +33,19 @@
             <tr>
                 <td>
                     <h2>Subject: </h2>
-                    <textarea rows="1" cols="100" name="Subject"></textarea>
+                    <textarea rows="1" cols="100" name="Subject" placeholder="Enter your blog subject here"></textarea>
                 </td>
             </tr>
             <tr>
                 <td>
                     <h2>Description: </h2>
-                    <textarea rows="15" cols="100" name="Description"></textarea>
+                    <textarea rows="15" cols="100" name="Description" placeholder="Enter you blog description here"></textarea>
                 </td>
             </tr>
             <tr>
                 <td>
                      <h2>Tags: </h2>
-                     <textarea rows="2" cols="100" name="Tags"></textarea>
+                     <textarea rows="2" cols="100" name="Tags" placeholder="Put your tags here"></textarea>
                 </td>
             </tr>
         </table>
