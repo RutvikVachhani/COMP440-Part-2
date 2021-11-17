@@ -1,0 +1,71 @@
+div.center{
+    text-align: center;
+}
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.box {
+    margin: auto;
+    width: 200px;
+    border-color: transparent;
+    padding: 30px;
+    background: lightblue;
+    background-clip: border-box; 
+    text-align: center;
+}
+
+.boxRegister{
+    margin: auto;
+    width: 300px;
+    border-color: transparent;
+    padding: 30px;
+    background: lightblue;
+    background-clip: border-box; 
+    text-align: center;
+}
+
+.width{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.alert{
+    color: red;
+}
+
+.login{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav{
+    background-color:khaki;
+    margin-top: -10px;
+    padding: 8px;
+}
+.inline h1{
+    display: inline;
+    width: 90%;
+}
+
+.nav a {
+    color: black;
+    padding: 40px;
+    font: 24px;
+  }
+
+.Right{
+    float: right;
+    font-size: 24px;
+}
+
+button.btn {
+    padding: 20px;
+    background-color: black;
+    color: white;
+    font-size: 24px;
+}
