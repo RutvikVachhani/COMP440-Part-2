@@ -26,7 +26,9 @@
           </div>
         </div>
     </nav>
-    <form name="blog" action="blogProcess.php" method="POST">
+    <h1> Post your Blog </h2>
+    <?php require_once 'messages.php'; ?>
+    <form name="blog" action="postBlogProcess.php" method="POST">
         <table>
             <tr>
                 <td>
@@ -47,7 +49,7 @@
                 </td>
             </tr>
         </table>
-        <button type="submit" id="btn" name="submitBlog">Post Blog</button>
+        <button type="submit" id="btn" name="submitBlog" class="btn">Post Blog</button>
     </form>
 </body>
 </html>
