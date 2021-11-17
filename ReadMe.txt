@@ -10,7 +10,4 @@ Contributors:
 
 2) Rutvik Vachhani: Created Login page, home page, created database table and 
 			button to execute university.sql file.
-
-			hedkjwhEFHE	
-			EHFHGWE
 			
