@@ -5,6 +5,7 @@ session_start();
 include 'db_connect.php';
 //got blog id
 $blogid =  $_GET['bid'];
+$_SESSION['blogid'] = $blogid;
 
 $sql = "SELECT * FROM blogs WHERE blogid = '$blogid';" ;
 $viewBlogs = mysqli_query($conn, $sql);
@@ -47,8 +48,15 @@ $row = mysqli_fetch_array($viewBlogs);
     <div class="displayInline">
       <div class="commentBox">
         <h1>Comment</h1>
-        <textarea class="textarea" name="comment" rows="2" cols="72" placeholder="Type your comment here"></textarea>
-        <button class="commentbtn">Post comment</button>
+        <form action="postCommentProcess.php" method="POST">
+          <select name="sentiment" required>
+            <option value="" disabled selected hidden>Choose a sentiment</option>
+            <option value="Positive">Positive</option>
+            <option value="Negative">Negative</option>
+          </select>
+          <textarea class="textarea" name="comment" rows="2" cols="72" placeholder="Type your comment here" required></textarea>
+          <button class="commentbtn" type="submit" name="submit" value="choose sentiment">Post Comment</button>
+        </form>
       </div>
     </div>
 </body>

@@ -17,6 +17,11 @@ if($c){
 //list of blogs
 $list = "SELECT * FROM blogs WHERE created_by = '$createdBy';" ;
 $blist = mysqli_query($conn, $list);
+
+//comment count
+$cCount = "SELECT COUNT(*) FROM comments WHERE posted_by = '$createdBy' AND cdate = '$pdate' ;" ;
+$resultcCount = mysqli_query($conn, $cCount);
+$rowCCount = mysqli_fetch_array($resultcCount);
 ?>
 
 <!DOCTYPE html>   
@@ -55,7 +60,7 @@ $blist = mysqli_query($conn, $list);
           <h2>Post New Blog</h2>
           <p>Blog Posted Today: <?php echo $Brow ?></p>
           </a>
-          <h3> Your Blogs </h3>
+          <h3> Your Blogs (subject)</h3>
         </div>
           <ul>
           <?php while($rblist = mysqli_fetch_array($blist)){
@@ -70,7 +75,7 @@ $blist = mysqli_query($conn, $list);
             <span class="dot"><i id="b" class="fas fa-comment fa-4x"></i></span>
           </div>
           <h2>Comment On Blogs</h2>
-          <p>Comments Posted Today: <?php ?></p>
+          <p>Comments Posted Today: <?php echo $rowCCount['COUNT(*)'] ?></p>
         </a>
       </div>
     </div>

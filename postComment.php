@@ -33,12 +33,13 @@ $viewBlogs = mysqli_query($conn, $sql);
         </div>
     </nav>
     <h1 class="color">Comment on a Blog<h1>
+    <?php require_once 'messages.php'; ?>
     <h2 class="color">Click on one of the blogs to write a comment</h2>
     <div class="blogListBox">
         <ul class='list'>
             <?php
                 while($row = mysqli_fetch_array($viewBlogs)){
-                    echo "<li class='list'> <a href='viewBlog.php?bid=". $row['blogid'] ."'>  Subject: " . $row['subject'] . " posted by " . $row['created_by'] . "</a> </li>";
+                    echo "<li class='list'> <a href='viewBlog.php?bid=". $row['blogid'] ."'> <b> Subject: </b>" . $row['subject'] . "<b> posted by </b>" . $row['created_by'] . "</a> </li>";
                 } 
             ?>
         </ul>
