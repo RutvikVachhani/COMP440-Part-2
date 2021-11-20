@@ -1,15 +1,22 @@
 <?php 
 session_start();
 
+//connect db
 include 'db_connect.php';
+
 $createdBy = $_SESSION['User'];
 $pdate = date("Y-m-d");
+
+//Blog count
 $bCount = "SELECT * from blogs WHERE created_by = '$createdBy' AND pdate = '$pdate';" ;
 $c = mysqli_query($conn, $bCount);
 if($c){
-  $row = mysqli_num_rows($c);
+  $Brow = mysqli_num_rows($c);
 }
 
+//list of blogs
+$list = "SELECT * FROM blogs WHERE created_by = '$createdBy';" ;
+$blist = mysqli_query($conn, $list);
 ?>
 
 <!DOCTYPE html>   
@@ -28,31 +35,44 @@ if($c){
         <i class="fas fa-database fa-2x"></i>
         <h1>COMP 440 Phase 1 Team#20</h1>
         <div class="Right">
-        <form action="initializeButton.php" method="POST">
-          <button type="submit" name="initialize" class="btn" >
-            Initialize Project Database
-          </button>
-        </form>
-        <form action="logout.php" method="POST">
-          <button type="submit" name="initialize" class="btn" >
-            Logout
-          </button>
-        </form>
+        <a class="active" href="home.php">Home</a>
+        <a class="hover" href="initializeButton.php">Initialize University database</a>
+        <a class="hover" href="logout.php">Logout</a>
          </div>
       </div>
     </nav>
     <div class="center">
-  	  <h1>Hello <?php echo $_SESSION['User']; ?> <h1>
+  	  <h1 class="color">Hello <?php echo $_SESSION['User']; ?> <h1>
     </div>
     <br><br>
-    <a href="postBlog.php">
-      <div class="boxElements centerText">
-        <div class="center">
-          <span class="dot"><i id="b" class="fas fa-blog fa-4x"></i></span>
+    <div class="displayInline">
+      <div class="boxElements">
+        <div class="centerText">
+        <a href="postBlog.php">
+          <div class="center">
+            <span class="dot"><i id="b" class="fas fa-blog fa-4x"></i></span>
+          </div>
+          <h2>Post New Blog</h2>
+          <p>Blog Posted Today: <?php echo $Brow ?></p>
+          </a>
+          <h3> Your Blogs </h3>
         </div>
-        <h2>Post New Blog</h2>
-        <p>Blog Posted Today: <?php echo $row ?></p>
+          <ul>
+          <?php while($rblist = mysqli_fetch_array($blist)){
+                  echo "<li>" . $rblist['subject'] . "</li>";
+                }
+          ?>
+          </ul>
       </div>
-    </a>
+      <div class="boxElements centerText">
+        <a href="postComment.php">
+          <div class="center">
+            <span class="dot"><i id="b" class="fas fa-comment fa-4x"></i></span>
+          </div>
+          <h2>Comment On Blogs</h2>
+          <p>Comments Posted Today: <?php ?></p>
+        </a>
+      </div>
+    </div>
   </body>
 </html>
