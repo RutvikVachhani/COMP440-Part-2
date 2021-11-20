@@ -1,5 +1,15 @@
 <?php 
 session_start();
+
+include 'db_connect.php';
+$createdBy = $_SESSION['User'];
+$pdate = date("Y-m-d");
+$bCount = "SELECT * from blogs WHERE created_by = '$createdBy' AND pdate = '$pdate';" ;
+$c = mysqli_query($conn, $bCount);
+if($c){
+  $row = mysqli_num_rows($c);
+}
+
 ?>
 
 <!DOCTYPE html>   
@@ -34,9 +44,15 @@ session_start();
     <div class="center">
   	  <h1>Hello <?php echo $_SESSION['User']; ?> <h1>
     </div>
-    <a href="postBlog.php">Post a new blog</a>
-    <div class="boxElements">
-      hello my trial of this box.
-    </div>
+    <br><br>
+    <a href="postBlog.php">
+      <div class="boxElements centerText">
+        <div class="center">
+          <span class="dot"><i id="b" class="fas fa-blog fa-4x"></i></span>
+        </div>
+        <h2>Post New Blog</h2>
+        <p>Blog Posted Today: <?php echo $row ?></p>
+      </div>
+    </a>
   </body>
 </html>
