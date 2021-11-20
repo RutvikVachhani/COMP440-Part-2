@@ -1,4 +1,4 @@
-CREATE TABLE UserLoginDetails(
+CREATE TABLE Users(
     Firstname VARCHAR(30) NOT NULL, 
     Lastname VARCHAR(30) NOT NULL, 
     Email VARCHAR(100) UNIQUE NOT NULL,

@@ -56,7 +56,7 @@
   $Password = mysqli_real_escape_string($conn, $Password);
 
   //Email already used
-  $sql = "SELECT Email FROM UserLoginDetails WHERE Email = '$Email'";
+  $sql = "SELECT Email FROM users WHERE Email = '$Email'";
 
   $result = mysqli_query($conn, $sql);
 
@@ -67,7 +67,7 @@
   }
 
   //Username already used
-  $sql = "SELECT Username FROM UserLoginDetails WHERE Username = '$Username'";
+  $sql = "SELECT Username FROM users WHERE Username = '$Username'";
 
   $result = mysqli_query($conn, $sql);
 
@@ -78,7 +78,7 @@
   }
 
   //query
-  $stmt = $conn->prepare("INSERT INTO UserLoginDetails(Firstname, Lastname, Email, Username, Password) VALUES (?,?,?,?,?)");
+  $stmt = $conn->prepare("INSERT INTO users(Firstname, Lastname, Email, Username, Password) VALUES (?,?,?,?,?)");
 
   $stmt->bind_param("sssss", $Firstname, $Lastname, $Email, $Username, $Password);
 
