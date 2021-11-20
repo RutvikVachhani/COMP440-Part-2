@@ -35,5 +35,8 @@ session_start();
   	  <h1>Hello <?php echo $_SESSION['User']; ?> <h1>
     </div>
     <a href="postBlog.php">Post a new blog</a>
+    <div class="boxElements">
+      hello my trial of this box.
+    </div>
   </body>
 </html>

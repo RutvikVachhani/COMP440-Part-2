@@ -12,7 +12,7 @@ session_start();
     $Password = mysqli_real_escape_string($conn, $Password);
 
     //query
-    $sql = "SELECT * FROM UserLoginDetails WHERE Username = '$Username' AND Password = '$Password'";
+    $sql = "SELECT * FROM users WHERE Username = '$Username' AND Password = '$Password'";
 
     $result = mysqli_query($conn, $sql)
                 or die("Failed to query Database".mysqli_error($conn));

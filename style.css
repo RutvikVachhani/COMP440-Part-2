@@ -57,7 +57,7 @@ nav{
 }
 
 button.btn {
-    padding: 15px;
+    padding: 13px;
     background-color: khaki;
     border-color: transparent;
     color: black;
@@ -69,3 +69,11 @@ button:hover{
     background-color: black;
     color: white;
 }
+
+.boxElements {
+    width: 300px;
+    border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+  }
+  
