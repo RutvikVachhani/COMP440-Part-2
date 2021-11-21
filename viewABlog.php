@@ -14,6 +14,8 @@ $row = mysqli_fetch_array($viewBlogs);
 $tagSQL = "SELECT tag FROM blogstags WHERE blogid = '$blogid';" ;
 $tagResult = mysqli_query($conn, $tagSQL);
 
+$commentSQL = "SELECT `description`, `posted_by` FROM comments WHERE blogid = '$blogid';" ;
+$commentResult = mysqli_query($conn, $commentSQL);
 ?>
 
 <!DOCTYPE html>
@@ -53,27 +55,16 @@ $tagResult = mysqli_query($conn, $tagSQL);
                 echo "<li>" .$tagRow['tag']. "</li>";
             }
         ?>
-      </div>
-    </div>
-    <div class="displayInline">
-      <div class="commentBox">
-        <h1>Comment</h1>
-        <form action="postCommentProcess.php" method="POST">
-          <select name="sentiment" required>
-            <option value="" disabled selected hidden>Choose a sentiment</option>
-            <option value="Positive">Positive</option>
-            <option value="Negative">Negative</option>
-          </select>
-          <textarea class="textarea" name="comment" rows="2" cols="72" placeholder="Type your comment here" required></textarea>
-          <button class="commentbtn" type="submit" name="submit" value="choose sentiment">Post Comment</button>
-        </form>
+        </ul>
+        <h2> Comments </h2>
+        <ul>
+        <?php
+            while($commentRow = mysqli_fetch_array($commentResult)){
+                echo "<li>" .$commentRow['description']. " (posted by: " .$commentRow['posted_by']. ")</li>";
+            }
+        ?>
+        </ul>
       </div>
     </div>
 </body>
 </html>
-
-<?php
-
-  
-
-?>

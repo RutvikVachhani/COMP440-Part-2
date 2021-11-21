@@ -1,5 +1,6 @@
 <?php 
 session_start();
+$username = $_SESSION['User'];
 
 //connect db
 include 'db_connect.php';
@@ -22,6 +23,11 @@ $blist = mysqli_query($conn, $list);
 $cCount = "SELECT COUNT(*) FROM comments WHERE posted_by = '$createdBy' AND cdate = '$pdate' ;" ;
 $resultcCount = mysqli_query($conn, $cCount);
 $rowCCount = mysqli_fetch_array($resultcCount);
+
+//total blogs
+$totalBlogs = "SELECT COUNT(*) FROM blogs;" ;
+$totalBlogsResult = mysqli_query($conn, $totalBlogs);
+$totalBlogsRows = mysqli_fetch_array($totalBlogsResult);
 ?>
 
 <!DOCTYPE html>   
@@ -64,12 +70,13 @@ $rowCCount = mysqli_fetch_array($resultcCount);
         </div>
           <ul>
           <?php while($rblist = mysqli_fetch_array($blist)){
-                  echo "<li>" . $rblist['subject'] . "</li>";
+                  echo "<li><a href='viewPersonalBlog.php?pbid=" .$rblist['blogid']."'>  " . $rblist['subject'] . "</li>";
                 }
           ?>
           </ul>
       </div>
-      <div class="boxElements centerText">
+      <div class="boxElements">
+        <div class="centerText">
         <a href="postComment.php">
           <div class="center">
             <span class="dot"><i id="b" class="fas fa-comment fa-4x"></i></span>
@@ -77,7 +84,18 @@ $rowCCount = mysqli_fetch_array($resultcCount);
           <h2>Comment On Blogs</h2>
           <p>Comments Posted Today: <?php echo $rowCCount['COUNT(*)'] ?></p>
         </a>
+        </div>
       </div>
+        <div class="boxElements">
+          <div class="centerText">
+          <a href="viewAllBlogs.php">
+            <div class="center">
+             <span class="dot"><i id="b" class="fas fa-blog fa-4x"></i></span>
+            </div>
+            <h2>View All Blogs</h2>
+            <h3>Total Number of Blogs: <?php echo $totalBlogsRows['COUNT(*)']; ?> <h3>
+          </a>
+        </div>
     </div>
   </body>
 </html>

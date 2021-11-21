@@ -27,6 +27,12 @@ div.center{
     margin-right: auto; 
 }
 
+span.a {
+    display: inline; /* the default for span */
+
+    padding: 5px;
+  }
+
 .displayInline{
     width: 100%;
     display: flex;
