@@ -36,7 +36,7 @@ $blogid = $_SESSION['blogid'];
     }
 
     //Cannot post more than one comment for each blog 
-    $bComment = "SELECT COUNT(*) from comments INNER JOIN blogs ON comments.blogid = blogs.blogid; ";
+    $bComment = "SELECT COUNT(*) from comments INNER JOIN blogs ON comments.blogid = blogs.blogid WHERE comments.posted_by = '$postedby' and blogs.blogid = '$blogid'; ";
     $bComCount = mysqli_query($conn, $bComment);
 
     while($row = mysqli_fetch_array($bComCount)) {
