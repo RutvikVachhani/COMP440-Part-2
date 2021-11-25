@@ -1,13 +1,15 @@
 COMP 440 TEAM #20 Phase 2 
 
-Youtube link: https://www.youtube.com/watch?v=VDevPms3LxA  
+Youtube link: https://youtu.be/nAcGS1XYwWM
 
 Contributors:
 
-1) Devanshi Patel: Created Registration page, coded to prevent SQL Injection,
-			recorded the video
+1) Devanshi Patel: created Posting comment part.
 		
 
-2) Rutvik Vachhani: Created Login page, home page, created database table and 
-			button to execute university.sql file.
+2) Rutvik Vachhani: created blog posting and viewing part, Recorded video.
+
+References:
+	Learnt Php from https://www.php.net/docs.php
+	Used https://www.w3schools.com to know more about using php with MySQLi.
 			
