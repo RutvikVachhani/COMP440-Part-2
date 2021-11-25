@@ -1,4 +1,4 @@
-COMP 440 TEAM #20 PHASE 1 
+COMP 440 TEAM #20 Phase 2 
 
 Youtube link: https://www.youtube.com/watch?v=VDevPms3LxA  
 

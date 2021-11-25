@@ -12,7 +12,7 @@
   <nav>
       <div class="inline">
         <i class="fas fa-database fa-2x"></i>
-        <h1>COMP 440 Phase 1 Team#20</h1>
+        <h1>COMP 440 Phase 2 Team#20</h1>
       </div>
     </nav>
     <div class="boxRegister">

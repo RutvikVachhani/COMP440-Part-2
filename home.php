@@ -44,7 +44,7 @@ $totalBlogsRows = mysqli_fetch_array($totalBlogsResult);
   <nav>
       <div class="inline">
         <i class="fas fa-database fa-2x"></i>
-        <h1>COMP 440 Phase 1 Team#20</h1>
+        <h1>COMP 440 Phase 2 Team#20</h1>
         <div class="Right">
         <a class="active" href="home.php">Home</a>
         <a class="hover" href="initializeButton.php">Initialize University database</a>
