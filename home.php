@@ -42,7 +42,7 @@ $totalBlogsRows = mysqli_fetch_array($totalBlogsResult);
   </head>
 	<body>
   <nav>
-      <div class="inline">
+     <div class="inline">
         <i class="fas fa-database fa-2x"></i>
         <h1>COMP 440 Phase 2 Team#20</h1>
         <div class="Right">
@@ -96,6 +96,52 @@ $totalBlogsRows = mysqli_fetch_array($totalBlogsResult);
             <h3>Total Number of Blogs: <?php echo $totalBlogsRows['COUNT(*)']; ?> <h3>
           </a>
         </div>
+      </div>
+<!-- -------------------------------------Phase 3---------------------------------------------------- -->
+      <div class="boxElements">
+        <div class="centerText">
+          <a href="1positiveComment.php">
+            <h2>Blogs with Positive Comments</h2>
+          </a>
+        </div>
+      </div>
+      <div class="boxElements">
+        <div class="centerText">
+          <a href="2mostBlogsDate.php">
+            <h2>Most Number of Blogs on 10/10/2021</h2>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="displayInline">
+    <div class="boxElements">
+        <div class="centerText">
+          <a href="3followedBy.php">
+            <h2>Followed By</h2>
+          </a>
+        </div>
+      </div>
+      <div class="boxElements">
+        <div class="centerText">
+          <a href="4noBlogs.php">
+            <h2>Users Who Never Posted Blog</h2>
+          </a>
+        </div>
+      </div>
+      <div class="boxElements">
+        <div class="centerText">
+          <a href="5negativeComments.php">
+            <h2>Users Posted Negative Comments</h2>
+          </a>
+        </div>
+      </div>
+      <div class="boxElements">
+        <div class="centerText">
+          <a href="6noNegativeComments.php">
+            <h2>Blogs With No Negative Comments</h2>
+          </a>
+        </div>
+      </div>
     </div>
   </body>
 </html>
