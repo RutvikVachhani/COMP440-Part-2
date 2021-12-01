@@ -123,7 +123,7 @@ $totalBlogsRows = mysqli_fetch_array($totalBlogsResult);
       </div>
       <div class="boxElements">
         <div class="centerText">
-          <a href="4noBlogs.php">
+          <a href="4neverPosted.php">
             <h2>Users Who Never Posted Blog</h2>
           </a>
         </div>

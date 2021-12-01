@@ -1,12 +1,12 @@
 <?php
-session_start();
+    session_start();
 
-//connect db
-include 'db_connect.php';
-
-//list of users
-$blogCount = "SELECT COUNT(*), created_by from blogs WHERE pdate = '2021-11-25' GROUP BY created_by;" ;
-$count = mysqli_query($conn, $blogCount);
+    //connect db
+    include 'db_connect.php';
+    
+    //list of users
+    $neverPosted = "SELECT `username` FROM users WHERE username NOT IN (SELECT created_by FROM blogs);" ;
+    $result = mysqli_query($conn, $neverPosted);
 ?>
 
 <!DOCTYPE html>
@@ -32,12 +32,12 @@ $count = mysqli_query($conn, $blogCount);
         </div>
     </div>
 </nav>
-<h1 class="color">List of Users Posted Most Blogs on 10/10/2021</h1>
+<h1 class="color">Users Who Never Posted Blog</h1>
 <div class="blogListBox">
         <ul class='list'>
             <?php
-                while($row = mysqli_fetch_array($count)){
-                    echo "<li class='list'>" . $row['created_by'] . "</li>";
+                while($row = mysqli_fetch_array($result)){
+                    echo "<li class='list'>" . $row['username'] . "</li>";
                 } 
             ?>
         </ul>

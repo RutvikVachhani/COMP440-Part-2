@@ -1,12 +1,12 @@
 <?php
-session_start();
+    session_start();
 
-//connect db
-include 'db_connect.php';
-
-//list of users
-$blogCount = "SELECT COUNT(*), created_by from blogs WHERE pdate = '2021-11-25' GROUP BY created_by;" ;
-$count = mysqli_query($conn, $blogCount);
+    //connect db
+    include 'db_connect.php';
+    
+    //list of users
+    $noNegative = "SELECT subject, created_by FROM blogs INNER JOIN comments ON blogs.blogid = comments.commentid WHERE comments.sentiment = 'positive';" ;
+    $result = mysqli_query($conn, $noNegative);
 ?>
 
 <!DOCTYPE html>
@@ -32,11 +32,11 @@ $count = mysqli_query($conn, $blogCount);
         </div>
     </div>
 </nav>
-<h1 class="color">List of Users Posted Most Blogs on 10/10/2021</h1>
+<h1 class="color">Users Who Never Got Never Comments</h1>
 <div class="blogListBox">
         <ul class='list'>
             <?php
-                while($row = mysqli_fetch_array($count)){
+                while($row = mysqli_fetch_array($result)){
                     echo "<li class='list'>" . $row['created_by'] . "</li>";
                 } 
             ?>
