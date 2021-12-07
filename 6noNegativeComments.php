@@ -5,7 +5,10 @@
     include 'db_connect.php';
     
     //list of users
-    $noNegative = "SELECT subject, created_by FROM blogs INNER JOIN comments ON blogs.blogid = comments.commentid WHERE comments.sentiment = 'positive';" ;
+    $noNegative = "SELECT DISTINCT username FROM users
+                    INNER JOIN blogs ON users.username = blogs.created_by
+                    WHERE blogs.created_by  IN
+                    (SELECT posted_by FROM comments WHERE sentiment != 'negative');" ;
     $result = mysqli_query($conn, $noNegative);
 ?>
 
@@ -37,7 +40,7 @@
         <ul class='list'>
             <?php
                 while($row = mysqli_fetch_array($result)){
-                    echo "<li class='list'>" . $row['created_by'] . "</li>";
+                    echo "<li class='list'>" . $row['username'] . "</li>";
                 } 
             ?>
         </ul>

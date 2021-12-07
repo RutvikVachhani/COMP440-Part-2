@@ -5,7 +5,10 @@
     include 'db_connect.php';
     
     //list of users
-    $neverPosted = "SELECT `username` FROM users WHERE username NOT IN (SELECT created_by FROM blogs);" ;
+    $neverPosted = "SELECT username FROM users
+                    LEFT JOIN blogs
+                    ON users.username = blogs.created_by
+                    WHERE blogs.blogid is NULL;" ;
     $result = mysqli_query($conn, $neverPosted);
 ?>
 
