@@ -108,7 +108,7 @@ $totalBlogsRows = mysqli_fetch_array($totalBlogsResult);
       <div class="boxElements">
         <div class="centerText">
           <a href="2mostBlogsDate.php">
-            <h2>Most Number of Blogs on 10/10/2021</h2>
+            <h2>Most Number of Blogs on 11/25/2021</h2>
           </a>
         </div>
       </div>

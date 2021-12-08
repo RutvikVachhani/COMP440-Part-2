@@ -39,7 +39,7 @@ $count = mysqli_query($conn, $blogCount);
         </div>
     </div>
 </nav>
-<h1 class="color">List of Users Posted Most Blogs on 10/10/2021</h1>
+<h1 class="color">List of Users Posted Most Blogs on 11/25/2021</h1>
 <div class="blogListBox">
         <ul class='list'>
             <?php

@@ -1,6 +1,6 @@
-5negativeComments
+
 <?php
-session_star();
+session_start();
 
 //connect db
 include 'db_connect.php';
