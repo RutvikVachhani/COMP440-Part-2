@@ -42,7 +42,7 @@
         <ul class='list'>
             <?php
                 while($row = mysqli_fetch_array($result)){
-                    echo "<li class='list'>" . $row['username'] . "</li>";
+                    echo "<li class='list'>" . $row['created_by'] . "</li>";
                 } 
             ?>
         </ul>
