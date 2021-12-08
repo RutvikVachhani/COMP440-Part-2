@@ -5,7 +5,12 @@
     include 'db_connect.php';
     
     //list of users
-    $noNegative = "SELECT subject, created_by FROM blogs INNER JOIN comments ON blogs.blogid = comments.commentid WHERE comments.sentiment = 'positive';" ;
+    $noNegative = "SELECT DISTINCT blogs.created_by FROM blogs 
+                    WHERE blogs.created_by NOT IN 
+                    (SELECT blogs.created_by FROM comments 
+                    RIGHT JOIN blogs ON comments.blogid = blogs.blogid 
+                    WHERE comments.sentiment LIKE 'negative' GROUP BY blogs.created_by) 
+                    OR blogs.blogid = NULL;" ;
     $result = mysqli_query($conn, $noNegative);
 ?>
 

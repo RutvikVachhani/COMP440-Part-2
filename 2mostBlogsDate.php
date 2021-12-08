@@ -5,7 +5,14 @@ session_start();
 include 'db_connect.php';
 
 //list of users
-$blogCount = "SELECT COUNT(*), created_by from blogs WHERE pdate = '2021-11-25' GROUP BY created_by;" ;
+/*procedure - 
+CREATE Procedure maxBlog()
+BEGIN
+set @maxi = (select count(*) from blogs group by created_by order by count(*) desc limit 1);
+select created_by from blogs GROUP BY created_by HAVING COUNT(*) = @maxi;
+END*/
+
+$blogCount = "CALL maxBlog()" ;
 $count = mysqli_query($conn, $blogCount);
 ?>
 
