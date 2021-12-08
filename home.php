@@ -116,9 +116,25 @@ $totalBlogsRows = mysqli_fetch_array($totalBlogsResult);
     <div class="displayInline">
     <div class="boxElements">
         <div class="centerText">
-          <a href="3followedBy.php">
-            <h2>Followed By</h2>
-          </a>
+          <h2>Followed By</h2>
+          <p>Enter two followers</p>
+          <form name="users" action="3followedBy.php" method="POST">
+          <table>
+          <tr>
+            <td>X Username:</td>
+            <td>
+              <input type="text" id="XUsername" name="XUsername" placeholder="Enter Username" required/>
+            </td>
+          </tr>
+          <tr>
+            <td>Y Username:</td>
+            <td>
+              <input type="text" id="YUsername" name="YUsername" placeholder="Enter Username" required/>
+            </td>
+          </tr>
+          </table>
+              <button type="submit" id="btn" name="submit" class="enter">Enter</button>
+         </form>
         </div>
       </div>
       <div class="boxElements">
