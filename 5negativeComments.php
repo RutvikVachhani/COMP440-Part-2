@@ -1,3 +1,4 @@
+5negativeComments
 <?php
 session_star();
 
@@ -5,8 +6,8 @@ session_star();
 include 'db_connect.php';
 
 //list of blogs
-$blogs = "SELECT `subject`, `created_by`  FROM blogs WHERE created_by IN (SELECT posted_by FROM comments WHERE sentiment = 'positive');" ;
-$bloglist = mysqli_query($conn, $blogs);
+$users = "SELECT username FROM users JOIN comments ON users.username = comments.posted_by WHERE posted_by NOT IN (SELECT posted_by FROM comments where sentiment = 'positive');" ;
+$userlist = mysqli_query($conn, $users);
 ?>
 
 <!DOCTYPE html>
@@ -32,12 +33,12 @@ $bloglist = mysqli_query($conn, $blogs);
         </div>
     </div>
 </nav>
-<h1 class="color">List all the blogs with positive comments.</h1>
+<h1 class="color">List all the users who posted only negative comments.</h1>
 <div class="blogListBox">
         <ul class='list'>
             <?php
-                while($row = mysqli_fetch_array($bloglist)){
-                    echo "<li class='list'><b> Subject: </b>" . $row['subject'] . "<b> posted by </b>" . $row['created_by'] . "</li>";
+                while($row = mysqli_fetch_array($userlist)){
+                    echo "<li class='list'><b> Username: </b>" . $row['username'] . "</li>";
                 } 
             ?>
         </ul>

@@ -1,12 +1,15 @@
 <?php
 session_star();
 
+$YUsername = isset($_POST['YUsername']) ? $_POST['YUsername'] : '';
+$XUsername = isset($_POST['XUsername']) ? $_POST['XUsername'] : '';
+
 //connect db
 include 'db_connect.php';
 
 //list of blogs
-$blogs = "SELECT `subject`, `created_by`  FROM blogs WHERE created_by IN (SELECT posted_by FROM comments WHERE sentiment = 'positive');" ;
-$bloglist = mysqli_query($conn, $blogs);
+$users = "SELECT username  FROM users WHERE users.username = follows.leadername IN (SELECT leadername FROM follows WHERE followername= '$XUsername' UNION SELECT leadername FROM follows WHERE followername = '$YUsername');" ;
+$userlist = mysqli_query($conn, $users);
 ?>
 
 <!DOCTYPE html>
@@ -32,12 +35,12 @@ $bloglist = mysqli_query($conn, $blogs);
         </div>
     </div>
 </nav>
-<h1 class="color">List all the blogs with positive comments.</h1>
+<h1 class="color">List the users who are followed by both X and Y.</h1>
 <div class="blogListBox">
         <ul class='list'>
             <?php
-                while($row = mysqli_fetch_array($bloglist)){
-                    echo "<li class='list'><b> Subject: </b>" . $row['subject'] . "<b> posted by </b>" . $row['created_by'] . "</li>";
+                while($row = mysqli_fetch_array($userlist)){
+                    echo "<li class='list'><b> Username: </b>" . $row['username'] . "</li>";
                 } 
             ?>
         </ul>
