@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+$blogDate = isset($_POST['selectedDate']) ? $_POST['selectedDate'] : '';
+
 //connect db
 include 'db_connect.php';
 
@@ -12,7 +14,7 @@ set @maxi = (select count(*) from blogs group by created_by order by count(*) de
 select created_by from blogs GROUP BY created_by HAVING COUNT(*) = @maxi;
 END*/
 
-$blogCount = "CALL maxBlog()" ;
+$blogCount = "CALL maxBlog('$blogDate')" ;
 $count = mysqli_query($conn, $blogCount);
 ?>
 
@@ -39,7 +41,7 @@ $count = mysqli_query($conn, $blogCount);
         </div>
     </div>
 </nav>
-<h1 class="color">List of Users Posted Most Blogs on 11/25/2021</h1>
+<h1 class="color">List of Users Posted Most Blogs on <?php echo $blogDate ?></h1>
 <div class="blogListBox">
         <ul class='list'>
             <?php

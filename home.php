@@ -107,9 +107,14 @@ $totalBlogsRows = mysqli_fetch_array($totalBlogsResult);
       </div>
       <div class="boxElements">
         <div class="centerText">
-          <a href="2mostBlogsDate.php">
-            <h2>Most Number of Blogs on 11/25/2021</h2>
-          </a>
+          <h2>Most Number of Blogs on Specific Date</h2>
+          <form name="blogDate" action="2mostBlogsDate.php" method="POST">
+                <p>Select a Date</p>
+                <input type="date" id="selectedDate" name="selectedDate" required>
+                <button type="submit" id="2btn" name="submitSelectedDate" class="enter">
+                  Enter
+                </button>
+          </form>
         </div>
       </div>
     </div>
