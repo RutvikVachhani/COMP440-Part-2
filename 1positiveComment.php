@@ -5,7 +5,7 @@ session_start();
 include 'db_connect.php';
 
 //list of blogs
-$blogs = "SELECT `subject`, `created_by`  FROM blogs WHERE created_by IN (SELECT posted_by FROM comments WHERE sentiment = 'positive');" ;
+$blogs = "SELECT created_by FROM blogs INNER JOIN comments ON blogs.blogid = comments.blogid WHERE sentiment = 'positive';" ;
 $bloglist = mysqli_query($conn, $blogs);
 ?>
 
@@ -37,7 +37,7 @@ $bloglist = mysqli_query($conn, $blogs);
         <ul class='list'>
             <?php
                 while($row = mysqli_fetch_array($bloglist)){
-                    echo "<li class='list'><b> Subject: </b>" . $row['subject'] . "<b> posted by </b>" . $row['created_by'] . "</li>";
+                    echo "<li class='list'> " . $row['created_by'] . "</li>";
                 } 
             ?>
         </ul>

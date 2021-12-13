@@ -8,7 +8,7 @@ $XUsername = isset($_POST['XUsername']) ? $_POST['XUsername'] : '';
 include 'db_connect.php';
 
 //list of blogs
-$users = "SELECT username  FROM users WHERE users.username IN (SELECT leadername FROM follows WHERE followername= '$XUsername' UNION SELECT leadername FROM follows WHERE followername = '$YUsername');" ;
+$users = "SELECT username  FROM users WHERE users.username IN (SELECT leadername FROM follows WHERE followername= '$XUsername' INTERSECT SELECT leadername FROM follows WHERE followername = '$YUsername');" ;
 $userlist = mysqli_query($conn, $users);
 ?>
 
